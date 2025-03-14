@@ -1,260 +1,214 @@
 import React, { useState } from "react";
-import { Menu, X, ShoppingCart, User, Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Separator } from "@/components/ui/separator";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import Header from "./layout/Header";
+import Sidebar from "./layout/Sidebar";
 import HeroSection from "./home/HeroSection";
 import FeaturedDeals from "./home/FeaturedDeals";
 import RepairServicesPreview from "./home/RepairServicesPreview";
-import ProductCard from "./products/ProductCard";
-import ServiceCard from "./services/ServiceCard";
+import Footer from "./layout/Footer";
+import { Button } from "./ui/button";
+import { ArrowRight } from "lucide-react";
 
-interface SidebarCategoryProps {
-  title: string;
-  items: { name: string; href: string }[];
+function Home() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  return (
+    <div className="flex min-h-screen bg-background">
+      {/* Sidebar */}
+      <div className="fixed left-0 top-0 z-40 h-full md:relative md:block md:w-[280px]">
+        <Sidebar isOpen={isSidebarOpen} onToggle={toggleSidebar} />
+      </div>
+
+      {/* Main content */}
+      <div className="flex-1">
+        <Header onToggleSidebar={toggleSidebar} />
+
+        <main>
+          <HeroSection />
+
+          <section className="py-12 bg-white">
+            <div className="container px-4 mx-auto text-center">
+              <h2 className="text-3xl font-bold mb-6">
+                Chào Mừng Đến Với ĐiệnTửVN
+              </h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+                Chúng tôi cung cấp các sản phẩm điện tử chất lượng cao và dịch
+                vụ sửa chữa chuyên nghiệp. Với hơn 10 năm kinh nghiệm, chúng tôi
+                tự hào là đối tác tin cậy cho mọi nhu cầu điện tử của bạn.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button size="lg" className="group" asChild>
+                  <a href="/products">
+                    Khám Phá Sản Phẩm
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" className="group" asChild>
+                  <a href="/services">
+                    Dịch Vụ Sửa Chữa
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </section>
+
+          <FeaturedDeals />
+
+          <section className="py-16 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+            <div className="container px-4 mx-auto">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h2 className="text-3xl font-bold mb-4">
+                    Miễn Phí Vận Chuyển Toàn Quốc
+                  </h2>
+                  <p className="text-lg mb-6 text-blue-100">
+                    Đặt hàng trên 2 triệu đồng và nhận miễn phí vận chuyển đến
+                    tận nhà trên toàn quốc. Áp dụng cho tất cả sản phẩm điện tử
+                    trong cửa hàng của chúng tôi.
+                  </p>
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="bg-white text-blue-700 hover:bg-blue-50"
+                    asChild
+                  >
+                    <a href="/products">Mua Sắm Ngay</a>
+                  </Button>
+                </div>
+                <div className="flex justify-center">
+                  <img
+                    src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800&q=80"
+                    alt="Free shipping"
+                    className="rounded-lg shadow-xl max-w-md w-full"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <RepairServicesPreview />
+
+          <section className="py-16 bg-gray-100">
+            <div className="container px-4 mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4">
+                  Khách Hàng Nói Gì Về Chúng Tôi
+                </h2>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Khám phá trải nghiệm của khách hàng với sản phẩm và dịch vụ
+                  của chúng tôi
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <div className="flex items-center mb-4">
+                    <div className="mr-4">
+                      <img
+                        src="https://api.dicebear.com/7.x/avataaars/svg?seed=user1"
+                        alt="Customer"
+                        className="w-12 h-12 rounded-full"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Nguyễn Văn A</h4>
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => (
+                          <svg
+                            key={i}
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 fill-current"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 italic">
+                    "Tôi đã mua một chiếc tivi từ ĐiệnTửVN và rất hài lòng với
+                    chất lượng sản phẩm. Dịch vụ giao hàng nhanh chóng và nhân
+                    viên rất thân thiện."
+                  </p>
+                </div>
+
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <div className="flex items-center mb-4">
+                    <div className="mr-4">
+                      <img
+                        src="https://api.dicebear.com/7.x/avataaars/svg?seed=user2"
+                        alt="Customer"
+                        className="w-12 h-12 rounded-full"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Trần Thị B</h4>
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => (
+                          <svg
+                            key={i}
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 fill-current"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 italic">
+                    "Dịch vụ sửa chữa loa của ĐiệnTửVN thực sự xuất sắc. Kỹ
+                    thuật viên đã sửa chiếc loa của tôi trong thời gian rất ngắn
+                    và chi phí hợp lý. Tôi sẽ quay lại khi cần."
+                  </p>
+                </div>
+
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <div className="flex items-center mb-4">
+                    <div className="mr-4">
+                      <img
+                        src="https://api.dicebear.com/7.x/avataaars/svg?seed=user3"
+                        alt="Customer"
+                        className="w-12 h-12 rounded-full"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Lê Văn C</h4>
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => (
+                          <svg
+                            key={i}
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 fill-current"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 italic">
+                    "Tôi đã mua nhiều sản phẩm từ ĐiệnTửVN và luôn hài lòng với
+                    chất lượng. Chính sách bảo hành của họ rất tốt và dịch vụ
+                    khách hàng luôn nhiệt tình hỗ trợ."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <Footer />
+      </div>
+    </div>
+  );
 }
 
-const SidebarCategory = ({ title, items = [] }: SidebarCategoryProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full">
-      <div className="flex items-center justify-between py-2">
-        <CollapsibleTrigger asChild>
-          <Button
-            variant="ghost"
-            className="w-full justify-between p-2 font-medium"
-          >
-            {title}
-            {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </Button>
-        </CollapsibleTrigger>
-      </div>
-      <CollapsibleContent className="pl-4 space-y-1">
-        {items.map((item, index) => (
-          <a
-            key={index}
-            href={item.href}
-            className="block py-2 px-2 text-sm hover:bg-gray-100 rounded-md transition-colors"
-          >
-            {item.name}
-          </a>
-        ))}
-      </CollapsibleContent>
-    </Collapsible>
-  );
-};
-
-const Sidebar = () => {
-  const categories = [
-    {
-      title: "Audio",
-      items: [
-        { name: "Speakers", href: "/products/speakers" },
-        { name: "Headphones", href: "/products/headphones" },
-        { name: "Sound Systems", href: "/products/sound-systems" },
-      ],
-    },
-    {
-      title: "Video",
-      items: [
-        { name: "TVs", href: "/products/tvs" },
-        { name: "Projectors", href: "/products/projectors" },
-        { name: "Media Players", href: "/products/media-players" },
-      ],
-    },
-    {
-      title: "Home Appliances",
-      items: [
-        { name: "Fans", href: "/products/fans" },
-        { name: "Cookers", href: "/products/cookers" },
-        { name: "Refrigerators", href: "/products/refrigerators" },
-      ],
-    },
-    {
-      title: "Repair Services",
-      items: [
-        { name: "TV Repair", href: "/services/tv-repair" },
-        { name: "Audio Repair", href: "/services/audio-repair" },
-        { name: "Phone Repair", href: "/services/phone-repair" },
-        { name: "Computer Repair", href: "/services/computer-repair" },
-      ],
-    },
-  ];
-
-  return (
-    <div className="w-full h-full bg-white p-4 overflow-y-auto">
-      <div className="mb-6">
-        <h2 className="text-xl font-bold mb-2">Categories</h2>
-        <Separator className="mb-4" />
-        <div className="space-y-1">
-          {categories.map((category, index) => (
-            <SidebarCategory
-              key={index}
-              title={category.title}
-              items={category.items}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const Header = () => {
-  return (
-    <header className="sticky top-0 z-50 w-full bg-white border-b">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        <div className="flex items-center">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="w-[280px] p-0">
-              <Sidebar />
-            </SheetContent>
-          </Sheet>
-
-          <a href="/" className="text-2xl font-bold ml-2 md:ml-0">
-            ElectroFix
-          </a>
-        </div>
-
-        <div className="hidden md:flex items-center flex-1 max-w-md mx-4">
-          <div className="relative w-full">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-            <Input
-              placeholder="Search products and services..."
-              className="pl-10 w-full"
-            />
-          </div>
-        </div>
-
-        <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="icon">
-            <User className="h-5 w-5" />
-          </Button>
-          <Button variant="ghost" size="icon">
-            <ShoppingCart className="h-5 w-5" />
-            <span className="absolute top-0 right-0 h-4 w-4 rounded-full bg-primary text-[10px] font-bold flex items-center justify-center text-white">
-              3
-            </span>
-          </Button>
-        </div>
-      </div>
-    </header>
-  );
-};
-
-const Footer = () => {
-  return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">ElectroFix</h3>
-            <p className="text-gray-400">
-              Your one-stop shop for electronics and repair services.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Shop</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="/products" className="text-gray-400 hover:text-white">
-                  All Products
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/products/featured"
-                  className="text-gray-400 hover:text-white"
-                >
-                  Featured Deals
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/products/new"
-                  className="text-gray-400 hover:text-white"
-                >
-                  New Arrivals
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="/services" className="text-gray-400 hover:text-white">
-                  All Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/repair"
-                  className="text-gray-400 hover:text-white"
-                >
-                  Repair Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/installation"
-                  className="text-gray-400 hover:text-white"
-                >
-                  Installation
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Contact</h4>
-            <ul className="space-y-2">
-              <li className="text-gray-400">123 Electronics Ave</li>
-              <li className="text-gray-400">Tech City, TC 12345</li>
-              <li className="text-gray-400">support@electrofix.com</li>
-              <li className="text-gray-400">(123) 456-7890</li>
-            </ul>
-          </div>
-        </div>
-        <Separator className="my-8 bg-gray-700" />
-        <div className="text-center text-gray-500 text-sm">
-          © {new Date().getFullYear()} ElectroFix. All rights reserved.
-        </div>
-      </div>
-    </footer>
-  );
-};
-
-const HomePage = () => {
-  return (
-    <div className="min-h-screen flex flex-col bg-background">
-      <Header />
-      <main className="flex-1">
-        <div className="flex">
-          <div className="hidden md:block w-[280px] h-[calc(100vh-80px)] sticky top-20 border-r">
-            <Sidebar />
-          </div>
-          <div className="flex-1">
-            <HeroSection />
-            <FeaturedDeals />
-            <RepairServicesPreview />
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </div>
-  );
-};
-
-export default HomePage;
+export default Home;

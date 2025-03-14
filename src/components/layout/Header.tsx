@@ -34,26 +34,32 @@ const Header = ({ onToggleSidebar = () => {} }: HeaderProps) => {
           </Button>
 
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold">ElectroShop</span>
+            <span className="text-2xl font-bold">ĐiệnTửVN</span>
           </div>
         </div>
 
         {/* Center section with navigation links */}
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="#" className="text-sm font-medium hover:text-primary">
-            Home
+          <a href="/" className="text-sm font-medium hover:text-primary">
+            Trang Chủ
           </a>
-          <a href="#" className="text-sm font-medium hover:text-primary">
-            Products
+          <a
+            href="/products"
+            className="text-sm font-medium hover:text-primary"
+          >
+            Sản Phẩm
           </a>
-          <a href="#" className="text-sm font-medium hover:text-primary">
-            Repair Services
+          <a
+            href="/services"
+            className="text-sm font-medium hover:text-primary"
+          >
+            Dịch Vụ Sửa Chữa
           </a>
-          <a href="#" className="text-sm font-medium hover:text-primary">
-            About
+          <a href="/about" className="text-sm font-medium hover:text-primary">
+            Giới Thiệu
           </a>
-          <a href="#" className="text-sm font-medium hover:text-primary">
-            Contact
+          <a href="/contact" className="text-sm font-medium hover:text-primary">
+            Liên Hệ
           </a>
         </nav>
 
@@ -64,7 +70,7 @@ const Header = ({ onToggleSidebar = () => {} }: HeaderProps) => {
             <Search className="absolute left-2.5 h-4 w-4 text-muted-foreground" />
             <Input
               type="search"
-              placeholder="Search products..."
+              placeholder="Tìm kiếm sản phẩm..."
               className="w-[200px] lg:w-[300px] pl-8"
             />
           </div>
@@ -88,13 +94,13 @@ const Header = ({ onToggleSidebar = () => {} }: HeaderProps) => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuLabel>Tài Khoản Của Tôi</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Orders</DropdownMenuItem>
-              <DropdownMenuItem>Wishlist</DropdownMenuItem>
+              <DropdownMenuItem>Hồ Sơ</DropdownMenuItem>
+              <DropdownMenuItem>Đơn Hàng</DropdownMenuItem>
+              <DropdownMenuItem>Danh Sách Yêu Thích</DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Log out</DropdownMenuItem>
+              <DropdownMenuItem>Đăng Xuất</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 

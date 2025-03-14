@@ -70,7 +70,7 @@ const ProductCard = ({ product }: { product: Product }) => {
       <CardFooter className="p-4 pt-0">
         <Button className="w-full" variant="default">
           <ShoppingCart className="w-4 h-4 mr-2" />
-          Add to Cart
+          Thêm Vào Giỏ
         </Button>
       </CardFooter>
     </Card>
@@ -78,7 +78,7 @@ const ProductCard = ({ product }: { product: Product }) => {
 };
 
 const FeaturedDeals = ({
-  title = "Featured Deals",
+  title = "Ưu Đãi Nổi Bật",
   products = defaultProducts,
 }: FeaturedDealsProps) => {
   return (
@@ -86,7 +86,9 @@ const FeaturedDeals = ({
       <div className="container px-4 mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
-          <Button variant="outline">View All</Button>
+          <Button variant="outline" asChild>
+            <a href="/products">Xem Tất Cả</a>
+          </Button>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {products.map((product) => (
@@ -102,20 +104,20 @@ const FeaturedDeals = ({
 const defaultProducts: Product[] = [
   {
     id: "1",
-    name: "Wireless Bluetooth Speaker",
-    price: 79.99,
-    originalPrice: 129.99,
+    name: "Loa Bluetooth Không Dây",
+    price: 1799000,
+    originalPrice: 2999000,
     rating: 4.5,
     image:
       "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=80",
-    discount: 38,
+    discount: 40,
     isNew: false,
   },
   {
     id: "2",
-    name: "55-inch 4K Smart TV",
-    price: 499.99,
-    originalPrice: 699.99,
+    name: "Tivi Thông Minh 4K 55 inch",
+    price: 11990000,
+    originalPrice: 16990000,
     rating: 4.8,
     image:
       "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600&q=80",
@@ -124,25 +126,69 @@ const defaultProducts: Product[] = [
   },
   {
     id: "3",
-    name: "Tower Fan with Remote Control",
-    price: 89.99,
-    originalPrice: 119.99,
+    name: "Quạt Đứng Điều Khiển Từ Xa",
+    price: 1990000,
+    originalPrice: 2690000,
     rating: 4.2,
     image:
       "https://images.unsplash.com/photo-1617375407633-acd67aba7864?w=600&q=80",
-    discount: 25,
+    discount: 26,
     isNew: true,
   },
   {
     id: "4",
-    name: "Digital Rice Cooker",
-    price: 59.99,
-    originalPrice: 79.99,
+    name: "Nồi Cơm Điện Tử",
+    price: 1390000,
+    originalPrice: 1890000,
     rating: 4.7,
     image:
       "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=600&q=80",
+    discount: 26,
+    isNew: false,
+  },
+  {
+    id: "5",
+    name: "Máy Lọc Không Khí Thông Minh",
+    price: 3990000,
+    originalPrice: 5990000,
+    rating: 4.6,
+    image:
+      "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80",
+    discount: 33,
+    isNew: true,
+  },
+  {
+    id: "6",
+    name: "Máy Giặt Cửa Trước 9kg",
+    price: 7990000,
+    originalPrice: 10990000,
+    rating: 4.9,
+    image:
+      "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=600&q=80",
+    discount: 27,
+    isNew: false,
+  },
+  {
+    id: "7",
+    name: "Tủ Lạnh Inverter 250L",
+    price: 8990000,
+    originalPrice: 11990000,
+    rating: 4.8,
+    image:
+      "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=600&q=80",
     discount: 25,
     isNew: false,
+  },
+  {
+    id: "8",
+    name: "Máy Pha Cà Phê Tự Động",
+    price: 2990000,
+    originalPrice: 3990000,
+    rating: 4.4,
+    image:
+      "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=600&q=80",
+    discount: 25,
+    isNew: true,
   },
 ];
 

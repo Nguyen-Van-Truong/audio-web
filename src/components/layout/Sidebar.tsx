@@ -41,51 +41,51 @@ const Sidebar = ({ isOpen = true, onToggle = () => {} }: SidebarProps) => {
 
   const productCategories: CategoryItem[] = [
     {
-      name: "Speakers",
+      name: "Loa",
       href: "/products/speakers",
       subcategories: [
-        { name: "Bluetooth Speakers", href: "/products/speakers/bluetooth" },
-        { name: "Soundbars", href: "/products/speakers/soundbars" },
+        { name: "Loa Bluetooth", href: "/products/speakers/bluetooth" },
+        { name: "Loa Soundbar", href: "/products/speakers/soundbars" },
         {
-          name: "Home Theater Systems",
+          name: "Dàn Âm Thanh",
           href: "/products/speakers/home-theater",
         },
       ],
     },
     {
-      name: "TVs",
+      name: "Tivi",
       href: "/products/tvs",
       subcategories: [
-        { name: "OLED TVs", href: "/products/tvs/oled" },
-        { name: "LED TVs", href: "/products/tvs/led" },
-        { name: "Smart TVs", href: "/products/tvs/smart" },
+        { name: "Tivi OLED", href: "/products/tvs/oled" },
+        { name: "Tivi LED", href: "/products/tvs/led" },
+        { name: "Tivi Thông Minh", href: "/products/tvs/smart" },
       ],
     },
     {
-      name: "Fans",
+      name: "Quạt",
       href: "/products/fans",
       subcategories: [
-        { name: "Ceiling Fans", href: "/products/fans/ceiling" },
-        { name: "Table Fans", href: "/products/fans/table" },
-        { name: "Tower Fans", href: "/products/fans/tower" },
+        { name: "Quạt Trần", href: "/products/fans/ceiling" },
+        { name: "Quạt Bàn", href: "/products/fans/table" },
+        { name: "Quạt Đứng", href: "/products/fans/tower" },
       ],
     },
     {
-      name: "Cookers",
+      name: "Nồi Cơm",
       href: "/products/cookers",
       subcategories: [
-        { name: "Rice Cookers", href: "/products/cookers/rice" },
-        { name: "Pressure Cookers", href: "/products/cookers/pressure" },
-        { name: "Slow Cookers", href: "/products/cookers/slow" },
+        { name: "Nồi Cơm Điện", href: "/products/cookers/rice" },
+        { name: "Nồi Áp Suất", href: "/products/cookers/pressure" },
+        { name: "Nồi Nấu Chậm", href: "/products/cookers/slow" },
       ],
     },
   ];
 
   const repairServices: CategoryItem[] = [
-    { name: "TV Repair", href: "/services/tv-repair" },
-    { name: "Speaker Repair", href: "/services/speaker-repair" },
-    { name: "Fan Repair", href: "/services/fan-repair" },
-    { name: "Cooker Repair", href: "/services/cooker-repair" },
+    { name: "Sửa Tivi", href: "/services/tv-repair" },
+    { name: "Sửa Loa", href: "/services/speaker-repair" },
+    { name: "Sửa Quạt", href: "/services/fan-repair" },
+    { name: "Sửa Nồi Cơm", href: "/services/cooker-repair" },
   ];
 
   const getCategoryIcon = (name: string) => {
@@ -104,7 +104,7 @@ const Sidebar = ({ isOpen = true, onToggle = () => {} }: SidebarProps) => {
   };
 
   return (
-    <div className="relative h-full bg-white">
+    <div className="relative h-full bg-white sticky top-0">
       {/* Sidebar toggle button */}
       <Button
         variant="ghost"
@@ -122,14 +122,14 @@ const Sidebar = ({ isOpen = true, onToggle = () => {} }: SidebarProps) => {
       {/* Sidebar content */}
       <div
         className={cn(
-          "h-full w-[280px] overflow-y-auto border-r border-gray-200 bg-white transition-all duration-300 ease-in-out",
+          "h-screen w-[280px] overflow-y-auto border-r border-gray-200 bg-white transition-all duration-300 ease-in-out fixed",
           isOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
         <div className="p-4">
           <div className="mb-6 flex items-center space-x-2">
             <Home className="h-5 w-5 text-primary" />
-            <span className="text-lg font-semibold">ElectroShop</span>
+            <span className="text-lg font-semibold">ĐiệnTửVN</span>
           </div>
 
           {/* Quick links */}
@@ -139,28 +139,28 @@ const Sidebar = ({ isOpen = true, onToggle = () => {} }: SidebarProps) => {
               className="flex items-center space-x-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100"
             >
               <Home className="h-4 w-4" />
-              <span>Home</span>
+              <span>Trang Chủ</span>
             </a>
             <a
               href="/cart"
               className="flex items-center space-x-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100"
             >
               <ShoppingCart className="h-4 w-4" />
-              <span>Cart</span>
+              <span>Giỏ Hàng</span>
             </a>
             <a
               href="/wishlist"
               className="flex items-center space-x-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100"
             >
               <Heart className="h-4 w-4" />
-              <span>Wishlist</span>
+              <span>Yêu Thích</span>
             </a>
           </div>
 
           {/* Product Categories */}
           <div className="mb-6">
             <h3 className="mb-2 px-3 text-xs font-semibold uppercase text-gray-500">
-              Product Categories
+              Danh Mục Sản Phẩm
             </h3>
             <Accordion type="single" collapsible className="w-full">
               {productCategories.map((category) => (
@@ -196,7 +196,7 @@ const Sidebar = ({ isOpen = true, onToggle = () => {} }: SidebarProps) => {
           {/* Repair Services */}
           <div>
             <h3 className="mb-2 px-3 text-xs font-semibold uppercase text-gray-500">
-              Repair Services
+              Dịch Vụ Sửa Chữa
             </h3>
             <div className="space-y-1">
               {repairServices.map((service) => (

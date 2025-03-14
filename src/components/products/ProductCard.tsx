@@ -25,9 +25,9 @@ interface ProductCardProps {
 
 const ProductCard = ({
   id = "1",
-  name = "Wireless Bluetooth Speaker",
-  price = 129.99,
-  originalPrice = 159.99,
+  name = "Loa Bluetooth Không Dây",
+  price = 2990000,
+  originalPrice = 3990000,
   rating = 4.5,
   image = "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&q=80",
   discount = 20,
@@ -94,7 +94,7 @@ const ProductCard = ({
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Add to wishlist</p>
+                <p>Thêm vào yêu thích</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -117,7 +117,7 @@ const ProductCard = ({
       </CardContent>
       <CardFooter className="p-4 pt-0">
         <Button className="w-full" onClick={onAddToCart}>
-          <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
+          <ShoppingCart className="mr-2 h-4 w-4" /> Thêm Vào Giỏ
         </Button>
       </CardFooter>
     </Card>

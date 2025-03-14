@@ -18,10 +18,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">ElectroFix</h3>
+            <h3 className="text-xl font-bold mb-4">ĐiệnTửVN</h3>
             <p className="mb-4 text-gray-300">
-              Your one-stop shop for electronics products and professional
-              repair services.
+              Cửa hàng điện tử và dịch vụ sửa chữa chuyên nghiệp hàng đầu Việt
+              Nam.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="hover:text-blue-400 transition-colors">
@@ -41,46 +41,46 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-4">Liên Kết Nhanh</h3>
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Home
+                  Trang Chủ
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/products"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Products
+                  Sản Phẩm
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/services"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Repair Services
+                  Dịch Vụ Sửa Chữa
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/about"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  About Us
+                  Giới Thiệu
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/contact"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Contact
+                  Liên Hệ
                 </a>
               </li>
             </ul>
@@ -88,7 +88,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Contact Us</h3>
+            <h3 className="text-xl font-bold mb-4">Liên Hệ</h3>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin
@@ -96,35 +96,34 @@ const Footer = () => {
                   className="text-gray-400 mt-1 flex-shrink-0"
                 />
                 <span className="text-gray-300">
-                  123 Electronics Street, Tech City, TC 12345
+                  123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={20} className="text-gray-400 flex-shrink-0" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-300">+84 (28) 3822-9999</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={20} className="text-gray-400 flex-shrink-0" />
-                <span className="text-gray-300">support@electrofix.com</span>
+                <span className="text-gray-300">hotro@dientuvn.com</span>
               </li>
             </ul>
           </div>
 
           {/* Newsletter */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Newsletter</h3>
+            <h3 className="text-xl font-bold mb-4">Bản Tin</h3>
             <p className="mb-4 text-gray-300">
-              Subscribe to our newsletter for the latest products and special
-              offers.
+              Đăng ký nhận bản tin để cập nhật sản phẩm mới và ưu đãi đặc biệt.
             </p>
             <div className="flex flex-col space-y-2">
               <Input
                 type="email"
-                placeholder="Your email address"
+                placeholder="Địa chỉ email của bạn"
                 className="bg-gray-800 border-gray-700 text-white"
               />
               <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                Subscribe
+                Đăng Ký
               </Button>
             </div>
           </div>
@@ -132,17 +131,18 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
           <p>
-            &copy; {new Date().getFullYear()} ElectroFix. All rights reserved.
+            &copy; {new Date().getFullYear()} ĐiệnTửVN. Tất cả quyền được bảo
+            lưu.
           </p>
           <div className="mt-2 space-x-4">
             <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
+              Chính Sách Bảo Mật
             </a>
             <a href="#" className="hover:text-white transition-colors">
-              Terms of Service
+              Điều Khoản Dịch Vụ
             </a>
             <a href="#" className="hover:text-white transition-colors">
-              Refund Policy
+              Chính Sách Hoàn Tiền
             </a>
           </div>
         </div>

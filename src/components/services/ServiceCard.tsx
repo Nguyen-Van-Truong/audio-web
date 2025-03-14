@@ -19,8 +19,8 @@ interface ServiceCardProps {
 
 const ServiceCard = ({
   image = "https://images.unsplash.com/photo-1588508065123-287b28e013da?w=600&q=80",
-  title = "Electronics Repair",
-  description = "Professional repair services for all your electronic devices with quick turnaround times.",
+  title = "Sửa Chữa Điện Tử",
+  description = "Dịch vụ sửa chữa chuyên nghiệp cho tất cả các thiết bị điện tử của bạn với thời gian hoàn thành nhanh chóng.",
   linkUrl = "/services/electronics-repair",
 }: ServiceCardProps) => {
   return (
@@ -43,7 +43,7 @@ const ServiceCard = ({
           asChild
         >
           <a href={linkUrl}>
-            Learn more <ArrowRight className="h-3.5 w-3.5 ml-1" />
+            Tìm hiểu thêm <ArrowRight className="h-3.5 w-3.5 ml-1" />
           </a>
         </Button>
       </CardFooter>

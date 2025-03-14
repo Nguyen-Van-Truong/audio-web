@@ -27,31 +27,41 @@ const HeroSection = ({
       id: 1,
       image:
         "https://images.unsplash.com/photo-1588508065123-287b28e013da?w=1200&q=80",
-      title: "Next-Gen Electronics",
+      title: "Thiết Bị Điện Tử Thế Hệ Mới",
       description:
-        "Discover our latest collection of cutting-edge electronics for your home and office.",
-      ctaText: "Shop Now",
+        "Khám phá bộ sưu tập thiết bị điện tử hiện đại nhất cho ngôi nhà và văn phòng của bạn.",
+      ctaText: "Mua Ngay",
       ctaLink: "/products/featured",
     },
     {
       id: 2,
       image:
         "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=1200&q=80",
-      title: "Premium Sound Systems",
+      title: "Hệ Thống Âm Thanh Cao Cấp",
       description:
-        "Experience immersive audio with our premium range of speakers and sound systems.",
-      ctaText: "Explore Audio",
+        "Trải nghiệm âm thanh sống động với dòng loa và hệ thống âm thanh cao cấp của chúng tôi.",
+      ctaText: "Khám Phá",
       ctaLink: "/products/speakers",
     },
     {
       id: 3,
       image:
         "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=1200&q=80",
-      title: "Expert Repair Services",
+      title: "Dịch Vụ Sửa Chữa Chuyên Nghiệp",
       description:
-        "Get your electronics fixed by certified technicians with our reliable repair services.",
-      ctaText: "Book Service",
+        "Sửa chữa thiết bị điện tử của bạn bởi đội ngũ kỹ thuật viên chuyên nghiệp với dịch vụ sửa chữa đáng tin cậy.",
+      ctaText: "Đặt Lịch",
       ctaLink: "/services/repair",
+    },
+    {
+      id: 4,
+      image:
+        "https://images.unsplash.com/photo-1601524909162-ae8725290836?w=1200&q=80",
+      title: "Khuyến Mãi Đặc Biệt Tháng Này",
+      description:
+        "Giảm giá lên đến 50% cho các sản phẩm điện tử cao cấp. Cơ hội có hạn, hãy mua ngay hôm nay!",
+      ctaText: "Xem Ưu Đãi",
+      ctaLink: "/promotions",
     },
   ],
 }: HeroSectionProps) => {
